@@ -1,0 +1,20 @@
+{
+  "name": "Node_JS_Bloggit ",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VovaSidorov/nodejs_blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VovaSidorov/nodejs_blog/issues"
+  },
+  "homepage": "https://github.com/VovaSidorov/nodejs_blog#readme"
+}
