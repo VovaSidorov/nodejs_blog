@@ -19,7 +19,9 @@
   "homepage": "https://github.com/VovaSidorov/nodejs_blog#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
