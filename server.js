@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 
-const users = require('./routes/users');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
+const users = require('./routes/users')(jsonParser);
 app.use('/users', users);
 
 app.listen("3000", err => {

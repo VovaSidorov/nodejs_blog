@@ -35,3 +35,16 @@ exports.user_show = (req, res) => {
             });
         })
 };
+
+exports.user_new = (req, res) => {
+    console.log(req.body);
+
+    User.create({...req.body})
+        .then(user => {
+            console.log(user);
+            res.json({
+                data: user,
+                status: "ok"
+            });
+        })
+};
