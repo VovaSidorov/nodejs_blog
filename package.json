@@ -19,6 +19,7 @@
   "homepage": "https://github.com/VovaSidorov/nodejs_blog#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "sequelize": "^4.43.0"
