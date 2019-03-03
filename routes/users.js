@@ -7,4 +7,4 @@ module.exports = (connection) => {
     router.get('/:id', usersController.user_show(connection));
 
     return router;
-}
+};

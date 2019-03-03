@@ -1,3 +1,5 @@
+const User = require('../models').User;
+
 exports.user_list = (connection) => {
     return (req, res) => {
 
@@ -6,52 +8,35 @@ exports.user_list = (connection) => {
         let offset = 0;
         let page = 1;
 
-        console.log(query);
         if("page" in query && Number.isInteger(parseInt(query.page)) && parseInt(query.page) > 0){
             page = parseInt(query.page);
             offset = limitRows*(page - 1);
         }
 
-
-        const query1 = `select * from users LIMIT ${limitRows} OFFSET ${offset};`;
-        const query2 = `select count(*) as count from users;`;
-
-
-
-        connection.query(`${query1} ${query2}`, (err, result) => {
-            if(err){}
-            console.log(result);
-            res.send({
-                data: result[0],
-                page: page,
-                total: result[1][0].count,
-                status: "ok"
-            });
-        })
+        User.findAndCountAll({ offset: offset, limit: limitRows })
+            .then(users => {
+                res.json({
+                    data: users,
+                    page: page,
+                    // total: result[1][0].count,
+                    status: "ok"
+                })
+            })
     }
 };
 
 exports.user_show = (connection) => {
     return (req, res) => {
-
         const {params: {id}} = req;
         console.log(id);
 
-        if(Number.isInteger(parseInt(id)) && parseInt(id) > 0){
-            const query1 = `select * from users WHERE id = ${id};`;
-            connection.query(query1, (err, result) => {
-                if(err){}
-                console.log(result);
-                res.send({
-                    data: result,
+        User.findById(id)
+            .then(user => {
+                console.log(user);
+                res.json({
+                    data: user,
                     status: "ok"
                 });
             })
-        }else {
-            res.send({
-                status: "error",
-                error: "Error get data"
-            });
-        }
     };
 };
