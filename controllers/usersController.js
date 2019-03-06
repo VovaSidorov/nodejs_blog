@@ -36,6 +36,24 @@ exports.user_show = (req, res) => {
         })
 };
 
+exports.user_delete = (req, res) => {
+    const {params: {id}} = req;
+    console.log(id);
+
+    User.destroy({
+        where: {
+            id: id
+        }
+    })
+        .then(result => {
+            console.log(result);
+            res.json({
+                data: result,
+                status: "ok"
+            });
+        })
+};
+
 exports.user_new = (req, res) => {
     console.log(req.body);
 
@@ -47,4 +65,4 @@ exports.user_new = (req, res) => {
                 status: "ok"
             });
         })
-};
+};git
