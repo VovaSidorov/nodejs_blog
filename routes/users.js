@@ -7,6 +7,7 @@ module.exports = (jsonParser) => {
     router.get('/:id', usersController.user_show);
     router.post('/',jsonParser, usersController.user_new);
     router.delete('/:id', usersController.user_delete);
+    router.put('/:id',jsonParser, usersController.user_update);
 
     return router;
 };
