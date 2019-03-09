@@ -36,6 +36,24 @@ exports.user_show = (req, res) => {
         })
 };
 
+exports.user_update = (req, res) => {
+    const {params: {id}} = req;
+    console.log(id);
+
+    User.findOne({ where: { id: id } })
+        .then(user => {
+            console.log('\x1b[31m',user);
+            user.update({...req.body})
+                .then(result => {
+                    console.log(result);
+                    res.json({
+                        data: result,
+                        status: "ok"
+                    });
+                })
+        })
+};
+
 exports.user_delete = (req, res) => {
     const {params: {id}} = req;
     console.log(id);
@@ -65,4 +83,4 @@ exports.user_new = (req, res) => {
                 status: "ok"
             });
         })
-};git
+};

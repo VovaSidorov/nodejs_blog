@@ -9,3 +9,4 @@ module.exports = (jsonParser) => {
     router.delete('/:id', usersController.user_delete);
 
     return router;
+};
