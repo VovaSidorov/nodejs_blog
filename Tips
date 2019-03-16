@@ -1,0 +1,12 @@
+select C.user_id, C.product_id, C.amount, P.id, P.price, P.title from Carts C LEFT JOIN Products P ON C.product_id = P.id WHERE user_id = 1;
+select SUM(C.amount)  from Carts C LEFT JOIN Products P ON C.product_id = P.id WHERE user_id = 1;
+select SUM(C.amount * P.price)  from Carts C LEFT JOIN Products P ON C.product_id = P.id WHERE user_id = 1;
+
+select
+C.product_id, C.amount, P.price, P.title, (C.amount * P.price) as total
+from Carts C
+LEFT JOIN Products P ON C.product_id = P.id
+WHERE user_id = 1;
+
+
+https://medium.com/@timmykko/deploying-create-react-app-with-nginx-and-ubuntu-e6fe83c5e9e7
