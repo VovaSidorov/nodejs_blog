@@ -4,6 +4,7 @@ const faker = require('faker');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+
     // Add altering commands here.
     // Return a promise to correctly handle asynchronicity.
 
@@ -19,11 +20,14 @@ module.exports = {
             amount: faker.random.number(),
             views: faker.random.number(),
             orders: faker.random.number(),
+
+
             createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
             updatedAt: Sequelize.literal('CURRENT_TIMESTAMP')
           }
         }),
         {});
+
   },
 
   down: (queryInterface, Sequelize) => {
