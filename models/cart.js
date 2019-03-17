@@ -1,4 +1,6 @@
 'use strict';
+const Product = require('../models').Product;
+
 module.exports = (sequelize, DataTypes) => {
   const Cart = sequelize.define('Cart', {
     user_id: DataTypes.INTEGER,
@@ -6,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     amount: DataTypes.INTEGER
   }, {});
   Cart.associate = function(models) {
-    // associations can be defined here
+
   };
+
+  // Cart.hasOne(Product);
+
   return Cart;
 };
