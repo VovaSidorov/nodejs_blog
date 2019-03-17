@@ -15,5 +15,22 @@ exports.cart_show = (req, res) => {
     })
         .then(tasks => {
             console.log(JSON.stringify(tasks))
+            res.json({
+                data: data,
+                status: "ok"
+            });
         });
+};
+
+exports.cart_add_item = (req, res) => {
+    console.log(req.body);
+
+    Cart.create({...req.body})
+        .then(data => {
+            console.log(data);
+            res.json({
+                data: data,
+                status: "ok"
+            });
+        })
 };
